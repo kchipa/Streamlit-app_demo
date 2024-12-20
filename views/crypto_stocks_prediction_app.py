@@ -22,27 +22,6 @@ meta_data = yf.download(stock, start, end)
 # Flatten the MultiIndex columns to keep only the price type
 meta_data.columns = meta_data.columns.get_level_values(0)
 
-# Correct raw GitHub URL
-DATA_URL = "https://raw.githubusercontent.com/kchipa/Streamlit-app_demo/main/views/Latest_stock_price_model.keras"
-LOCAL_PATH = "Latest_stock_price_model.keras"
-
-# Step 1: Download the file
-response = requests.get(DATA_URL)
-
-if response.status_code == 200:
-    # Save the file locally
-    with open(LOCAL_PATH, 'wb') as file:
-        file.write(response.content)
-    print("Model downloaded successfully.")
-else:
-    raise ValueError(f"Failed to download model: HTTP {response.status_code}")
-
-# Step 2: Load the model
-model = load_model(LOCAL_PATH)
-
-#model = load_model(DATA_URL)
-
-#model = tf.keras.models.load_model(path)
 
 #model = load_model('Steamlit-app_demo/views/Latest_stock_price_model.keras') 
 st.subheader("Stock Data")
