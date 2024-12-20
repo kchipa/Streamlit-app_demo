@@ -10,7 +10,7 @@ import tensorflow as tf
 
 
 st.title("Crypto/Stocks prediction")
-
+DATA_URL = "https://raw.githubusercontent.com/kchipa/Streamlit-app_demo/views/Latest_stock_price_model.keras"
 
 stock = st.text_input("Enter the Stock ID", "META")
 
@@ -23,7 +23,7 @@ meta_data = yf.download(stock, start, end)
 # Flatten the MultiIndex columns to keep only the price type
 meta_data.columns = meta_data.columns.get_level_values(0)
 
-model = load_model("Latest_stock_price_model.keras")
+model = load_model(DATA_URL)
 
 #model = tf.keras.models.load_model(path)
 
