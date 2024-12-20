@@ -30,8 +30,7 @@ if not os.path.exists(local_path):
     with open(local_path, 'wb') as f:
         f.write(response.content)
 
-# Now load the model
-from keras.models import load_model
+
 model = load_model(local_path)
 
 #model = load_model('views\Latest_stock_price_model.keras') 
