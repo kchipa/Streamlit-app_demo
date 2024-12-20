@@ -4,7 +4,8 @@ import streamlit as st
 import numpy as np 
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
-
+import requests
+import os
 
 
 st.title("Crypto/Stocks prediction")
@@ -21,7 +22,18 @@ meta_data = yf.download(stock, start, end)
 # Flatten the MultiIndex columns to keep only the price type
 meta_data.columns = meta_data.columns.get_level_values(0)
 
-model = load_model("https://github.com/kchipa/Streamlit-app_demo/blob/main/views/Latest_stock_price_model.keras")
+url = load_model("https://github.com/kchipa/Streamlit-app_demo/blob/main/views/Latest_stock_price_model.keras")
+local_path = "Latest_stock_price_model.keras"
+# Download the model file if it doesn't exist
+if not os.path.exists(local_path):
+    response = requests.get(url)
+    with open(local_path, 'wb') as f:
+        f.write(response.content)
+
+# Now load the model
+from keras.models import load_model
+model = load_model(local_path)
+
 #model = load_model('views\Latest_stock_price_model.keras') 
 st.subheader("Stock Data")
 st.write(meta_data)
