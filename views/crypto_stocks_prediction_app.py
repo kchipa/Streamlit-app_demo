@@ -10,7 +10,7 @@ import tensorflow as tf
 
 
 st.title("Crypto/Stocks prediction")
-DATA_URL = "https://raw.githubusercontent.com/kchipa/Streamlit-app_demo/views/Latest_stock_price_model.keras"
+DATA_URL = "gs://raw.githubusercontent.com/kchipa/Streamlit-app_demo/views/Latest_stock_price_model.keras"
 
 stock = st.text_input("Enter the Stock ID", "META")
 
