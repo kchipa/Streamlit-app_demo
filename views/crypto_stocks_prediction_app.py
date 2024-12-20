@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
 import requests
 import os
+import tensorflow as tf
 
 
 st.title("Crypto/Stocks prediction")
