@@ -22,7 +22,11 @@ meta_data = yf.download(stock, start, end)
 # Flatten the MultiIndex columns to keep only the price type
 meta_data.columns = meta_data.columns.get_level_values(0)
 
-model = load_model('Steamlit-app_demo/views/Latest_stock_price_model.keras') 
+path = "https://github.com/kchipa/Streamlit-app_demo/blob/main/views/Latest_stock_price_model.keras"
+
+model = tf.keras.models.load_model(path)
+
+#model = load_model('Steamlit-app_demo/views/Latest_stock_price_model.keras') 
 st.subheader("Stock Data")
 st.write(meta_data)
 st.write(meta_data.head())
