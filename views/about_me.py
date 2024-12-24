@@ -9,7 +9,7 @@ def show_contact_form():
 
 col1, col2 = st.columns(2, gap="small", vertical_alignment='center')
 with col1:
-    st.image("./assets/1687373508577.jpg", width=230)
+    st.image("./assets/kostap.png", width=230)
 with col2:
     st.title("Konstantine Chipashvili", anchor=False)
     st.write(
